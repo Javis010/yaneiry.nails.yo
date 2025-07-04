@@ -1,34 +1,20 @@
-// Menú Hamburguesa
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
 });
 
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+// Inicializar tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
-// Cambiar header al hacer scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    header.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Animación al cargar la página
-window.addEventListener('load', () => {
-    const heroContent = document.querySelector('.hero-content');
-    heroContent.style.opacity = '1';
-    heroContent.style.transform = 'translateY(0)';
-});
-
-// Smooth scrolling para todos los enlaces
+// Smooth scrolling para enlaces
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -37,8 +23,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         
         window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: targetElement.offsetTop - 70,
             behavior: 'smooth'
         });
+        
+        // Cerrar navbar en móvil después de hacer clic
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+            bsCollapse.hide();
+        }
     });
+});
+
+// Animación al cargar la página
+window.addEventListener('load', function() {
+    const heroContent = document.querySelector('.hero-section .container');
+    heroContent.style.opacity = '1';
+    heroContent.style.transform = 'translateY(0)';
 });
