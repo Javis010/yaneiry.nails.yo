@@ -1,11 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>.:Yaneiry.nails:.</title>
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nails Beauty Center - Estética de uñas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>¡Hola Yaneiry!</h1>
-    <p>Tu Pagina esta en desarrollo.</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Nails Beauty Center">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Tu belleza comienza en las uñas</h1>
+            <p>Servicios profesionales de manicura, pedicura y diseño de uñas</p>
+            <a href="#contacto" class="btn">Reserva tu cita</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid">
+                <div class="service">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Manicura</h3>
+                    <p>Desde $15.000</p>
+                    <ul>
+                        <li>Uñas acrílicas</li>
+                        <li>Esmaltado semipermanente</li>
+                        <li>Uñas de gel</li>
+                    </ul>
+                </div>
+                <div class="service">
+                    <i class="fas fa-socks"></i>
+                    <h3>Pedicura</h3>
+                    <p>Desde $20.000</p>
+                    <ul>
+                        <li>Pedicura spa</li>
+                        <li>Callosidades</li>
+                        <li>Diseño especial</li>
+                    </ul>
+                </div>
+                <div class="service">
+                    <i class="fas fa-gem"></i>
+                    <h3>Tratamientos</h3>
+                    <p>Desde $25.000</p>
+                    <ul>
+                        <li>Kapping</li>
+                        <li>Esculpidas</li>
+                        <li>Uñas postizas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="gallery">
+        <h2>Nuestros Trabajos</h2>
+        <div class="grid">
+            <img src="img/servicios/uñas1.jpg" alt="Diseño de uñas">
+            <img src="img/servicios/uñas2.jpg" alt="Manicura francesa">
+            <img src="img/servicios/uñas3.jpg" alt="Uñas acrílicas">
+            <img src="img/servicios/uñas4.jpg" alt="Pedicura spa">
+            <img src="img/servicios/uñas5.jpg" alt="Diseño artístico">
+            <img src="img/servicios/uñas6.jpg" alt="Uñas de gel">
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="flex">
+                <div class="contact-info">
+                    <h3>Visítanos</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Local 4</p>
+                    <p><i class="fas fa-phone"></i> +56 9 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> contacto@nailsbeauty.cl</p>
+                    <div class="social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <textarea placeholder="Mensaje"></textarea>
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nails Beauty Center. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
