@@ -238,6 +238,34 @@ a {
     width: 100%;
 }
 
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.language-flag {
+    width: 24px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.language-dropdown {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.language-dropdown:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 /* Hero Section */
 .hero-section {
     height: 100vh;
@@ -598,6 +626,12 @@ footer {
     .about-image {
         margin-bottom: 30px;
     }
+    
+    .language-selector {
+        margin-left: 0;
+        margin-top: 15px;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 576px) {
@@ -668,6 +702,15 @@ footer {
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
                 </ul>
+                
+                <!-- Selector de idioma -->
+                <div class="language-selector">
+                    <img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" width="20" alt="English" class="language-flag">
+                    <select class="language-dropdown">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
             </div>
         </div>
     </nav>
@@ -975,6 +1018,16 @@ footer {
                     behavior: 'smooth'
                 });
             });
+        });
+        
+        // Cambio de idioma
+        document.querySelector('.language-dropdown').addEventListener('change', function() {
+            if(this.value === 'en') {
+                // Aquí iría la lógica para cambiar a inglés
+                alert('Switching to English version');
+                // En una implementación real, esto redirigiría a la versión en inglés
+                // o cargaría los textos en inglés dinámicamente
+            }
         });
         
         // Animaciones al hacer scroll
