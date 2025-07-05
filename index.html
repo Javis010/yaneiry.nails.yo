@@ -3,22 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yaneiry Nails - Centro de Uñas</title>
+    <title>Yaneiry Nails - Centro de Uñas Profesional</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- CSS Personalizado -->
     <style>
     /* Variables de color */
 :root {
-    --primary-color: #d81b60; /* Rosa más vibrante */
-    --secondary-color: #ff5c8d; /* Rosa claro */
-    --accent-color: #ffd700; /* Dorado más brillante */
-    --dark-color: #4a4a4a;
-    --light-color: #fff5f7; /* Fondo rosado muy claro */
+    --primary-color: #8a4fff; /* Morado vibrante */
+    --secondary-color: #d8b4fe; /* Morado claro */
+    --accent-color: #ff9a8b; /* Coral */
+    --dark-color: #3a3a3a;
+    --light-color: #f8f9fa;
     --text-color: #555;
     --white: #fff;
     --black: #000;
-    --section-bg: #fff9fb; /* Fondo de secciones más claro */
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+}
+
+.preloader-content {
+    text-align: center;
+    color: white;
+}
+
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Estilos generales */
@@ -27,7 +70,12 @@ body {
     color: var(--text-color);
     overflow-x: hidden;
     line-height: 1.6;
-    background-color: var(--light-color);
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,7 +129,7 @@ a {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.3);
 }
 
 /* Logo CSS */
@@ -115,7 +163,7 @@ a {
 }
 
 .logo-icon::after {
-    content: '\f728'; /* Icono de brillo o esmalte de uñas, antes era \f53f (spa) */
+    content: '\f53f';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     color: var(--accent-color);
@@ -128,12 +176,12 @@ a {
     display: flex;
     flex-direction: column;
     line-height: 1.1;
-    margin-right: 5px; /* Ajuste para el espacio del texto del logo */
 }
 
 .logo-main {
     font-weight: 700;
     color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .logo-sub {
@@ -148,12 +196,12 @@ a {
 .navbar {
     padding: 15px 0;
     transition: all 0.3s ease;
-    background-color: rgba(74, 74, 74, 0.95);
+    background-color: rgba(58, 58, 58, 0.9);
 }
 
 .navbar.scrolled {
     padding: 10px 0;
-    background-color: rgba(74, 74, 74, 0.98);
+    background-color: rgba(58, 58, 58, 0.95);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -184,40 +232,22 @@ a {
     width: 100%;
 }
 
-/* Language Switch */
-.language-switch {
-    margin-left: 15px;
-}
-
-.language-btn {
-    background: transparent;
-    border: none;
-    color: var(--white);
-    cursor: pointer;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.language-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.language-btn.active {
-    background: var(--primary-color);
-}
-
 /* Hero Section */
 .hero-section {
     height: 100vh;
     min-height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1543163521-1bf539c1776b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') no-repeat center center; /* Imagen más relevante para uñas */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1596703264275-6f7a6fc3419f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
     align-items: center;
     color: var(--white);
+}
+
+.hero-content {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
 }
 
 .hero-section h1 {
@@ -242,11 +272,18 @@ a {
     transition: all 0.3s ease;
     background: var(--white);
     border-top: 4px solid var(--primary-color);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.service-card.animate {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(138, 79, 255, 0.2);
 }
 
 .service-icon {
@@ -260,6 +297,7 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.3);
 }
 
 .service-list {
@@ -285,18 +323,22 @@ a {
 }
 
 /* Galería */
-.gallery-section {
-    background-color: var(--section-bg);
-    padding: 80px 0;
-}
-
 .gallery-item {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin-bottom: 30px;
+    transform: scale(0.95);
+    opacity: 0;
+    animation: galleryItemAppear 0.5s ease forwards;
+}
+
+@keyframes galleryItemAppear {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .gallery-item img {
@@ -312,7 +354,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(216, 27, 96, 0.8);
+    background: rgba(138, 79, 255, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -336,7 +378,7 @@ a {
 /* Nosotros */
 .about-section {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1543163521-1bf539c1776b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') no-repeat center center; /* Imagen más relevante para uñas */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
     background-size: cover;
     padding: 100px 0;
     color: var(--white);
@@ -347,6 +389,13 @@ a {
     transition: all 0.5s ease;
     border-radius: 10px;
     overflow: hidden;
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.about-image.animate {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .about-image img {
@@ -358,18 +407,26 @@ a {
     transform: scale(1.03);
 }
 
-/* Contacto */
-.contact-section {
-    background-color: var(--section-bg);
-    padding: 80px 0;
+.about-content {
+    transform: translateX(20px);
+    opacity: 0;
+    animation: fadeInRight 1s ease forwards 0.5s;
 }
 
+/* Contacto */
 .contact-info {
     background: var(--white);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.contact-info.animate {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .contact-info i {
@@ -384,22 +441,23 @@ a {
 
 .social-links a {
     display: inline-block;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background: var(--primary-color);
     color: var(--white);
     border-radius: 50%;
     text-align: center;
-    line-height: 45px;
+    line-height: 50px;
     transition: all 0.3s ease;
-    margin-right: 10px;
     font-size: 1.2rem;
+    margin-right: 10px;
+    box-shadow: 0 3px 10px rgba(138, 79, 255, 0.3);
 }
 
 .social-links a:hover {
-    background: var(--secondary-color);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+    background: var(--accent-color);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 154, 139, 0.4);
 }
 
 .contact-form {
@@ -407,6 +465,13 @@ a {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.contact-form.animate {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .form-control {
@@ -418,7 +483,7 @@ a {
 }
 
 .form-control:focus {
-    box-shadow: none;
+    box-shadow: 0 0 0 0.25rem rgba(138, 79, 255, 0.25);
     border-color: var(--primary-color);
 }
 
@@ -440,12 +505,12 @@ footer {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    text-decoration: none; /* Asegura que el enlace no tenga subrayado */
 }
 
 .footer-logo-icon {
     color: var(--accent-color);
     margin-right: 10px;
+    font-size: 1.5rem;
 }
 
 /* Animaciones */
@@ -471,6 +536,17 @@ footer {
     }
 }
 
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .hero-section h1 {
@@ -484,6 +560,13 @@ footer {
     .logo {
         font-size: 1.5rem;
     }
+    
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -496,7 +579,7 @@ footer {
     }
     
     .navbar-collapse {
-        background: rgba(74, 74, 74, 0.98);
+        background: rgba(58, 58, 58, 0.95);
         padding: 20px;
         margin-top: 15px;
         border-radius: 5px;
@@ -504,6 +587,10 @@ footer {
     
     .logo {
         font-size: 1.3rem;
+    }
+    
+    .about-image {
+        margin-bottom: 30px;
     }
 }
 
@@ -524,14 +611,27 @@ footer {
         display: none;
     }
     
-    .language-switch {
-        margin-left: 0;
-        margin-top: 10px;
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1rem;
+        margin-right: 8px;
     }
 }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <h3>Yaneiry Nails</h3>
+            <p>Cargando experiencia de belleza...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand logo" href="#">
@@ -547,47 +647,45 @@ footer {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#inicio" data-i18n="menu.home">Inicio</a>
+                        <a class="nav-link active" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#servicios" data-i18n="menu.services">Servicios</a>
+                        <a class="nav-link" href="#servicios">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#galeria" data-i18n="menu.gallery">Galería</a>
+                        <a class="nav-link" href="#galeria">Galería</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#nosotros" data-i18n="menu.about">Nosotros</a>
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto" data-i18n="menu.contact">Contacto</a>
+                        <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
                 </ul>
-                <div class="language-switch">
-                    <button class="language-btn active" data-lang="es">ES</button>
-                    <button class="language-btn" data-lang="en">EN</button>
-                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="inicio" class="hero-section">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
-                <div class="col-12 text-center text-white">
-                    <h1 class="display-3 fw-bold" data-i18n="hero.title">Belleza en tus manos y pies</h1>
-                    <p class="lead" data-i18n="hero.subtitle">Profesionales en el cuidado y diseño de uñas</p>
-                    <a href="#contacto" class="btn btn-primary btn-lg mt-3" data-i18n="hero.button">Reserva tu cita</a>
+                <div class="col-12 text-center text-white hero-content">
+                    <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Belleza en tus uñas</h1>
+                    <p class="lead">Diseños exclusivos y cuidado profesional</p>
+                    <a href="#contacto" class="btn btn-primary btn-lg mt-3 animate__animated animate__pulse animate__infinite">Reserva tu cita</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="py-5" style="background-color: var(--section-bg);">
+    <!-- Servicios -->
+    <section id="servicios" class="py-5 bg-light">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title" data-i18n="services.title">Nuestros Servicios</h2>
-                    <p class="section-subtitle" data-i18n="services.subtitle">Descubre nuestros tratamientos profesionales</p>
+                    <h2 class="section-title">Nuestros Servicios</h2>
+                    <p class="section-subtitle">Tratamientos profesionales para tus uñas</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -597,12 +695,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-hand-sparkles"></i>
                             </div>
-                            <h3 class="card-title" data-i18n="services.manicure.title">Manicura</h3>
+                            <h3 class="card-title">Manicura</h3>
                             <ul class="service-list">
-                                <li data-i18n="services.manicure.item1">Manicura básica</li>
-                                <li data-i18n="services.manicure.item2">Esmaltado semipermanente</li>
-                                <li data-i18n="services.manicure.item3">Uñas acrílicas</li>
-                                <li data-i18n="services.manicure.item4">Uñas de gel</li>
+                                <li>Manicura básica</li>
+                                <li>Esmaltado semipermanente</li>
+                                <li>Uñas acrílicas</li>
+                                <li>Uñas de gel</li>
+                                <li>Diseños personalizados</li>
                             </ul>
                         </div>
                     </div>
@@ -613,12 +712,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-socks"></i>
                             </div>
-                            <h3 class="card-title" data-i18n="services.pedicure.title">Pedicura</h3>
+                            <h3 class="card-title">Pedicura</h3>
                             <ul class="service-list">
-                                <li data-i18n="services.pedicure.item1">Pedicura básica</li>
-                                <li data-i18n="services.pedicure.item2">Pedicura spa</li>
-                                <li data-i18n="services.pedicure.item3">Tratamiento para callos</li>
-                                <li data-i18n="services.pedicure.item4">Diseños especiales</li>
+                                <li>Pedicura básica</li>
+                                <li>Pedicura spa</li>
+                                <li>Tratamiento para callos</li>
+                                <li>Diseños especiales</li>
+                                <li>Masaje relajante</li>
                             </ul>
                         </div>
                     </div>
@@ -629,12 +729,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-gem"></i>
                             </div>
-                            <h3 class="card-title" data-i18n="services.treatments.title">Tratamientos</h3>
+                            <h3 class="card-title">Tratamientos</h3>
                             <ul class="service-list">
-                                <li data-i18n="services.treatments.item1">Kapping gel</li>
-                                <li data-i18n="services.treatments.item2">Esculpidas</li>
-                                <li data-i18n="services.treatments.item3">Uñas postizas</li>
-                                <li data-i18n="services.treatments.item4">Reparación de uñas</li>
+                                <li>Kapping gel</li>
+                                <li>Esculpidas</li>
+                                <li>Uñas postizas</li>
+                                <li>Reparación de uñas</li>
+                                <li>Decoración premium</li>
                             </ul>
                         </div>
                     </div>
@@ -643,25 +744,26 @@ footer {
         </div>
     </section>
 
-    <section id="galeria" class="gallery-section">
+    <!-- Galería -->
+    <section id="galeria" class="py-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title" data-i18n="gallery.title">Nuestros Trabajos</h2>
-                    <p class="section-subtitle" data-i18n="gallery.subtitle">Algunos de nuestros diseños</p>
+                    <h2 class="section-title">Nuestros Trabajos</h2>
+                    <p class="section-subtitle">Algunos de nuestros diseños exclusivos</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-3">
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1596704017255-ee8d8926e7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Diseño de uñas">
+                    <div class="gallery-item" style="animation-delay: 0.1s">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Diseño de uñas francesa">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
+                    <div class="gallery-item" style="animation-delay: 0.2s">
                         <img src="https://images.unsplash.com/photo-1604658243847-17375af581fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Manicura francesa">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
@@ -669,7 +771,7 @@ footer {
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
+                    <div class="gallery-item" style="animation-delay: 0.3s">
                         <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Uñas acrílicas">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
@@ -677,7 +779,7 @@ footer {
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
+                    <div class="gallery-item" style="animation-delay: 0.4s">
                         <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="img-fluid" alt="Pedicura decorada">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
@@ -685,16 +787,16 @@ footer {
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1605360015258-3b9d57c4f7e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Diseño artístico">
+                    <div class="gallery-item" style="animation-delay: 0.5s">
+                        <img src="https://images.unsplash.com/photo-1604658243790-8edfae4cd6f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Diseño artístico">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" class="img-fluid" alt="Uñas de gel">
+                    <div class="gallery-item" style="animation-delay: 0.6s">
+                        <img src="https://images.unsplash.com/photo-1604658243828-6f3a72571b92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Uñas de gel">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
@@ -704,90 +806,102 @@ footer {
         </div>
     </section>
 
-    <section id="nosotros" class="about-section">
+    <!-- Nosotros -->
+    <section id="nosotros" class="py-5 about-section">
         <div class="container position-relative">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="mb-4" data-i18n="about.title">Sobre Nosotros</h2>
-                    <p data-i18n="about.text1">En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.</p>
-                    <p data-i18n="about.text2">Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes.</p>
+                <div class="col-lg-6 mb-4 mb-lg-0 about-content">
+                    <h2 class="mb-4">Sobre Yaneiry Nails</h2>
+                    <p>En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.</p>
+                    <p>Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes. Cada servicio es una experiencia única de relajación y belleza.</p>
                     <div class="d-flex mt-4">
                         <div class="me-4">
-                            <h3>+500</h3>
-                            <p class="mb-0" data-i18n="about.clients">Clientes satisfechos</p>
+                            <h3>+1000</h3>
+                            <p class="mb-0">Clientes satisfechos</p>
                         </div>
                         <div>
                             <h3>+5</h3>
-                            <p class="mb-0" data-i18n="about.years">Años de experiencia</p>
+                            <p class="mb-0">Años de experiencia</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" class="img-fluid" alt="Nuestro centro de uñas">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid" alt="Nuestro centro de uñas">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="contact-section">
+    <!-- Contacto -->
+    <section id="contacto" class="py-5 bg-light">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
-                    <p class="section-subtitle" data-i18n="contact.subtitle">Visítanos o contáctanos</p>
+                    <h2 class="section-title">Contacto</h2>
+                    <p class="section-subtitle">Visítanos o contáctanos</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-5">
                     <div class="contact-info">
-                        <h3 class="mb-4" data-i18n="contact.info">Información</h3>
+                        <h3 class="mb-4">Información</h3>
                         <ul class="list-unstyled">
                             <li class="mb-3">
                                 <i class="fas fa-map-marker-alt me-2"></i>
-                                Viale Papa Giovanni XXIII, 118, 24121 Bergamo BG, Italia
+                                Av. Principal 1234, Local 5
                             </li>
                             <li class="mb-3">
                                 <i class="fas fa-phone me-2"></i>
-                                +39 333 123 4567
+                                +56 9 1234 5678
                             </li>
                             <li class="mb-3">
                                 <i class="fas fa-envelope me-2"></i>
-                                info@yaneirynails.it
+                                contacto@yaneirynails.cl
                             </li>
                             <li class="mb-4">
                                 <i class="fas fa-clock me-2"></i>
-                                <span data-i18n="contact.hours">Lunes a Sábado: 10:00 - 19:00 hrs</span>
+                                Lunes a Sábado: 10:00 - 20:00 hrs
                             </li>
                         </ul>
                         <div class="social-links">
-                            <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="me-2"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form">
-                        <h3 class="mb-4" data-i18n="contact.form.title">Envía un mensaje</h3>
-                        <form id="contactForm">
+                        <h3 class="mb-4">Envía un mensaje</h3>
+                        <form>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Nombre" required data-i18n-placeholder="contact.form.name">
+                                    <input type="text" class="form-control" placeholder="Nombre" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email" required data-i18n-placeholder="contact.form.email">
+                                    <input type="email" class="form-control" placeholder="Email" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="tel" class="form-control" placeholder="Teléfono" data-i18n-placeholder="contact.form.phone">
+                                    <input type="tel" class="form-control" placeholder="Teléfono">
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control" rows="5" placeholder="Mensaje" required data-i18n-placeholder="contact.form.message"></textarea>
+                                    <select class="form-control">
+                                        <option value="">Selecciona un servicio</option>
+                                        <option>Manicura</option>
+                                        <option>Pedicura</option>
+                                        <option>Uñas acrílicas</option>
+                                        <option>Uñas de gel</option>
+                                        <option>Otro servicio</option>
+                                    </select>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.button">Enviar Mensaje</button>
+                                    <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                                 </div>
                             </div>
                         </form>
@@ -797,24 +911,42 @@ footer {
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-4 bg-dark text-white">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <a class="footer-logo" href="#">
-                        <i class="fas fa-sparkles footer-logo-icon"></i> <span>Yaneiry Nails</span>
-                    </a>
-                    <p class="mb-0">Profesionales en el cuidado y diseño de uñas.</p>
+                    <div class="footer-logo">
+                        <i class="fas fa-spa footer-logo-icon"></i>
+                        <span>Yaneiry Nails</span>
+                    </div>
+                    <p class="mb-0">Diseños exclusivos y cuidado profesional para tus uñas</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">© 2023 Yaneiry Nails. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+                    <p class="mb-0">© 2023 Yaneiry Nails. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado -->
     <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                document.body.style.opacity = '1';
+            }, 500);
+            
+            // Animaciones al hacer scroll
+            animateOnScroll();
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -823,6 +955,9 @@ footer {
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            // Animaciones al hacer scroll
+            animateOnScroll();
         });
         
         // Smooth scrolling for anchor links
@@ -835,143 +970,62 @@ footer {
                 });
             });
         });
-
-        // Language switcher
-        const languageBtns = document.querySelectorAll('.language-btn');
-        let currentLang = 'es';
         
-        // Translations
-        const translations = {
-            es: {
-                "menu.home": "Inicio",
-                "menu.services": "Servicios",
-                "menu.gallery": "Galería",
-                "menu.about": "Nosotros",
-                "menu.contact": "Contacto",
-                "hero.title": "Belleza en tus manos y pies",
-                "hero.subtitle": "Profesionales en el cuidado y diseño de uñas",
-                "hero.button": "Reserva tu cita",
-                "services.title": "Nuestros Servicios",
-                "services.subtitle": "Descubre nuestros tratamientos profesionales",
-                "services.manicure.title": "Manicura",
-                "services.manicure.item1": "Manicura básica",
-                "services.manicure.item2": "Esmaltado semipermanente",
-                "services.manicure.item3": "Uñas acrílicas",
-                "services.manicure.item4": "Uñas de gel",
-                "services.pedicure.title": "Pedicura",
-                "services.pedicure.item1": "Pedicura básica",
-                "services.pedicure.item2": "Pedicura spa",
-                "services.pedicure.item3": "Tratamiento para callos",
-                "services.pedicure.item4": "Diseños especiales",
-                "services.treatments.title": "Tratamientos",
-                "services.treatments.item1": "Kapping gel",
-                "services.treatments.item2": "Esculpidas",
-                "services.treatments.item3": "Uñas postizas",
-                "services.treatments.item4": "Reparación de uñas",
-                "gallery.title": "Nuestros Trabajos",
-                "gallery.subtitle": "Algunos de nuestros diseños",
-                "about.title": "Sobre Nosotros",
-                "about.text1": "En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.",
-                "about.text2": "Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes.",
-                "about.clients": "Clientes satisfechos",
-                "about.years": "Años de experiencia",
-                "contact.title": "Contacto",
-                "contact.subtitle": "Visítanos o contáctanos",
-                "contact.info": "Información",
-                "contact.hours": "Lunes a Sábado: 10:00 - 19:00 hrs",
-                "contact.form.title": "Envía un mensaje",
-                "contact.form.name": "Nombre",
-                "contact.form.email": "Email",
-                "contact.form.phone": "Teléfono",
-                "contact.form.message": "Mensaje",
-                "contact.form.button": "Enviar Mensaje",
-                "footer.rights": "Todos los derechos reservados."
-            },
-            en: {
-                "menu.home": "Home",
-                "menu.services": "Services",
-                "menu.gallery": "Gallery",
-                "menu.about": "About Us",
-                "menu.contact": "Contact",
-                "hero.title": "Beauty for your hands and feet",
-                "hero.subtitle": "Professionals in nail care and design",
-                "hero.button": "Book your appointment",
-                "services.title": "Our Services",
-                "services.subtitle": "Discover our professional treatments",
-                "services.manicure.title": "Manicure",
-                "services.manicure.item1": "Basic manicure",
-                "services.manicure.item2": "Semi-permanent polish",
-                "services.manicure.item3": "Acrylic nails",
-                "services.manicure.item4": "Gel nails",
-                "services.pedicure.title": "Pedicure",
-                "services.pedicure.item1": "Basic pedicure",
-                "services.pedicure.item2": "Spa pedicure",
-                "services.pedicure.item3": "Callus treatment",
-                "services.pedicure.item4": "Special designs",
-                "services.treatments.title": "Treatments",
-                "services.treatments.item1": "Gel kapping",
-                "services.treatments.item2": "Sculpted nails",
-                "services.treatments.item3": "False nails",
-                "services.treatments.item4": "Nail repair",
-                "gallery.title": "Our Works",
-                "gallery.subtitle": "Some of our designs",
-                "about.title": "About Us",
-                "about.text1": "At Yaneiry Nails, we specialize in nail care and beautification for over 5 years. Our team of professionals is highly trained in the latest techniques and trends.",
-                "about.text2": "We use top-quality products and are committed to the hygiene and satisfaction of our clients.",
-                "about.clients": "Satisfied clients",
-                "about.years": "Years of experience",
-                "contact.title": "Contact Us",
-                "contact.subtitle": "Visit us or get in touch",
-                "contact.info": "Information",
-                "contact.hours": "Monday to Saturday: 10:00 AM - 7:00 PM",
-                "contact.form.title": "Send a message",
-                "contact.form.name": "Name",
-                "contact.form.email": "Email",
-                "contact.form.phone": "Phone",
-                "contact.form.message": "Message",
-                "contact.form.button": "Send Message",
-                "footer.rights": "All rights reserved."
+        // Animaciones al hacer scroll
+        function animateOnScroll() {
+            // Servicios
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(cardPosition < screenPosition) {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 200);
+                }
+            });
+            
+            // Galería
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(itemPosition < screenPosition) {
+                    item.style.animationPlayState = 'running';
+                }
+            });
+            
+            // Nosotros - Imagen
+            const aboutImage = document.querySelector('.about-image');
+            if(aboutImage) {
+                const imagePosition = aboutImage.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(imagePosition < screenPosition) {
+                    aboutImage.classList.add('animate');
+                }
             }
-        };
-
-        function updateContent(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+            
+            // Contacto
+            const contactInfo = document.querySelector('.contact-info');
+            const contactForm = document.querySelector('.contact-form');
+            
+            if(contactInfo && contactForm) {
+                const contactPosition = contactInfo.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(contactPosition < screenPosition) {
+                    contactInfo.classList.add('animate');
+                    contactForm.classList.add('animate');
                 }
-            });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    element.placeholder = translations[lang][key];
-                }
-            });
-             // Update the specific "Nails Spa" to "Nails" in the logo-sub
-            if (lang === 'es') {
-                document.querySelector('.logo-sub').textContent = 'Nails';
-            } else {
-                 document.querySelector('.logo-sub').textContent = 'Nails';
             }
         }
-
-        languageBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                languageBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentLang = btn.getAttribute('data-lang');
-                updateContent(currentLang);
-            });
-        });
-
-        // Initialize content with default language
-        updateContent(currentLang);
-
-        // Handle contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            alert('Mensaje enviado. ¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.');
-            this.reset(); // Clear the form
+        
+        // Inicializar animaciones al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
         });
     </script>
 </body>
