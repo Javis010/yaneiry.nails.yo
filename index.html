@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yaneiry Nails - Centro de Uñas Profesional</title>
+    <title>Yaneiry Nails - Professional Nail Center</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -259,6 +259,11 @@ a {
     color: var(--white);
     font-size: 0.9rem;
     cursor: pointer;
+    appearance: none;
+    padding: 5px 20px 5px 5px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
 }
 
 .language-dropdown:focus {
@@ -667,7 +672,7 @@ footer {
         <div class="preloader-content">
             <div class="preloader-spinner"></div>
             <h3>Yaneiry Nails</h3>
-            <p>Cargando experiencia de belleza...</p>
+            <p class="loading-text">Cargando experiencia de belleza...</p>
         </div>
     </div>
 
@@ -687,26 +692,26 @@ footer {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#inicio">Inicio</a>
+                        <a class="nav-link active" href="#inicio" data-i18n="nav.home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
+                        <a class="nav-link" href="#servicios" data-i18n="nav.services">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#galeria">Galería</a>
+                        <a class="nav-link" href="#galeria" data-i18n="nav.gallery">Galería</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                        <a class="nav-link" href="#nosotros" data-i18n="nav.about">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
+                        <a class="nav-link" href="#contacto" data-i18n="nav.contact">Contacto</a>
                     </li>
                 </ul>
                 
                 <!-- Selector de idioma -->
                 <div class="language-selector">
-                    <img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" width="20" alt="English" class="language-flag">
-                    <select class="language-dropdown">
+                    <img src="https://flagcdn.com/w20/es.png" srcset="https://flagcdn.com/w40/es.png 2x" width="20" alt="Español" class="language-flag" id="current-flag">
+                    <select class="language-dropdown" id="language-selector">
                         <option value="es">Español</option>
                         <option value="en">English</option>
                     </select>
@@ -720,9 +725,9 @@ footer {
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center text-white hero-content">
-                    <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Belleza en tus uñas</h1>
-                    <p class="lead">Diseños exclusivos y cuidado profesional</p>
-                    <a href="#contacto" class="btn btn-primary btn-lg mt-3 animate__animated animate__pulse animate__infinite">Reserva tu cita</a>
+                    <h1 class="display-3 fw-bold animate__animated animate__fadeInDown" data-i18n="hero.title">Belleza en tus uñas</h1>
+                    <p class="lead" data-i18n="hero.subtitle">Diseños exclusivos y cuidado profesional</p>
+                    <a href="#contacto" class="btn btn-primary btn-lg mt-3 animate__animated animate__pulse animate__infinite" data-i18n="hero.button">Reserva tu cita</a>
                 </div>
             </div>
         </div>
@@ -733,8 +738,8 @@ footer {
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h3 class="section-title">Nuestros Servicios</h3>
-                    <p class="section-subtitle">Tratamientos profesionales para tus uñas</p>
+                    <h2 class="section-title" data-i18n="services.title">Nuestros Servicios</h2>
+                    <p class="section-subtitle" data-i18n="services.subtitle">Tratamientos profesionales para tus uñas</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -744,13 +749,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-hand-sparkles"></i>
                             </div>
-                            <h3 class="card-title">Manicura</h3>
+                            <h3 class="card-title" data-i18n="services.manicure">Manicura</h3>
                             <ul class="service-list">
-                                <li>Manicura básica</li>
-                                <li>Esmaltado semipermanente</li>
-                                <li>Uñas acrílicas</li>
-                                <li>Uñas de gel</li>
-                                <li>Diseños personalizados</li>
+                                <li data-i18n="services.manicure1">Manicura básica</li>
+                                <li data-i18n="services.manicure2">Esmaltado semipermanente</li>
+                                <li data-i18n="services.manicure3">Uñas acrílicas</li>
+                                <li data-i18n="services.manicure4">Uñas de gel</li>
+                                <li data-i18n="services.manicure5">Diseños personalizados</li>
                             </ul>
                         </div>
                     </div>
@@ -761,13 +766,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-socks"></i>
                             </div>
-                            <h3 class="card-title">Pedicura</h3>
+                            <h3 class="card-title" data-i18n="services.pedicure">Pedicura</h3>
                             <ul class="service-list">
-                                <li>Pedicura básica</li>
-                                <li>Pedicura spa</li>
-                                <li>Tratamiento para callos</li>
-                                <li>Diseños especiales</li>
-                                <li>Masaje relajante</li>
+                                <li data-i18n="services.pedicure1">Pedicura básica</li>
+                                <li data-i18n="services.pedicure2">Pedicura spa</li>
+                                <li data-i18n="services.pedicure3">Tratamiento para callos</li>
+                                <li data-i18n="services.pedicure4">Diseños especiales</li>
+                                <li data-i18n="services.pedicure5">Masaje relajante</li>
                             </ul>
                         </div>
                     </div>
@@ -778,13 +783,13 @@ footer {
                             <div class="service-icon mb-4">
                                 <i class="fas fa-gem"></i>
                             </div>
-                            <h3 class="card-title">Tratamientos</h3>
+                            <h3 class="card-title" data-i18n="services.treatments">Tratamientos</h3>
                             <ul class="service-list">
-                                <li>Kapping gel</li>
-                                <li>Esculpidas</li>
-                                <li>Uñas postizas</li>
-                                <li>Reparación de uñas</li>
-                                <li>Decoración premium</li>
+                                <li data-i18n="services.treatment1">Kapping gel</li>
+                                <li data-i18n="services.treatment2">Esculpidas</li>
+                                <li data-i18n="services.treatment3">Uñas postizas</li>
+                                <li data-i18n="services.treatment4">Reparación de uñas</li>
+                                <li data-i18n="services.treatment5">Decoración premium</li>
                             </ul>
                         </div>
                     </div>
@@ -798,8 +803,8 @@ footer {
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h3 class="section-title">Nuestros Trabajos</h3>
-                    <p class="section-subtitle">Algunos de nuestros diseños exclusivos</p>
+                    <h2 class="section-title" data-i18n="gallery.title">Nuestros Trabajos</h2>
+                    <p class="section-subtitle" data-i18n="gallery.subtitle">Algunos de nuestros diseños exclusivos</p>
                 </div>
             </div>
             <div class="row g-3">
@@ -860,17 +865,17 @@ footer {
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0 about-content">
-                    <h2 class="mb-4">Sobre Yaneiry Nails</h2>
-                    <p>En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.</p>
-                    <p>Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes. Cada servicio es una experiencia única de relajación y belleza.</p>
+                    <h2 class="mb-4" data-i18n="about.title">Sobre Yaneiry Nails</h2>
+                    <p data-i18n="about.text1">En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.</p>
+                    <p data-i18n="about.text2">Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes. Cada servicio es una experiencia única de relajación y belleza.</p>
                     <div class="d-flex mt-4">
                         <div class="me-4">
                             <h2>+1000</h2>
-                            <p class="mb-0">Clientes satisfechos</p>
+                            <p class="mb-0" data-i18n="about.clients">Clientes satisfechos</p>
                         </div>
                         <div>
                             <h2>+5</h2>
-                            <p class="mb-0">Años de experiencia</p>
+                            <p class="mb-0" data-i18n="about.experience">Años de experiencia</p>
                         </div>
                     </div>
                 </div>
@@ -888,14 +893,14 @@ footer {
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h3 class="section-title">Contacto</h3>
-                    <p class="section-subtitle">Visítanos o contáctanos</p>
+                    <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+                    <p class="section-subtitle" data-i18n="contact.subtitle">Visítanos o contáctanos</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-5">
                     <div class="contact-info">
-                        <h3 class="mb-4">Información</h3>
+                        <h3 class="mb-4" data-i18n="contact.info">Información</h3>
                         <ul class="list-unstyled">
                             <li class="mb-3">
                                 <i class="fas fa-map-marker-alt me-2"></i>
@@ -911,7 +916,7 @@ footer {
                             </li>
                             <li class="mb-4">
                                 <i class="fas fa-clock me-2"></i>
-                                Lunes a Sábado: 10:00 - 20:00 hrs
+                                <span data-i18n="contact.hours">Lunes a Sábado: 10:00 - 20:00 hrs</span>
                             </li>
                         </ul>
                         <div class="social-links">
@@ -924,33 +929,33 @@ footer {
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form">
-                        <h3 class="mb-4">Envía un mensaje</h3>
+                        <h3 class="mb-4" data-i18n="contact.form.title">Envía un mensaje</h3>
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" placeholder="Nombre" data-i18n-placeholder="contact.form.name" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email" required>
+                                    <input type="email" class="form-control" placeholder="Email" data-i18n-placeholder="contact.form.email" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="tel" class="form-control" placeholder="Teléfono">
+                                    <input type="tel" class="form-control" placeholder="Teléfono" data-i18n-placeholder="contact.form.phone">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-control">
-                                        <option value="">Selecciona un servicio</option>
-                                        <option>Manicura</option>
-                                        <option>Pedicura</option>
-                                        <option>Uñas acrílicas</option>
-                                        <option>Uñas de gel</option>
-                                        <option>Otro servicio</option>
+                                    <select class="form-control" data-i18n-placeholder="contact.form.service">
+                                        <option value="" data-i18n="contact.form.serviceDefault">Selecciona un servicio</option>
+                                        <option data-i18n="services.manicure">Manicura</option>
+                                        <option data-i18n="services.pedicure">Pedicura</option>
+                                        <option data-i18n="services.manicure3">Uñas acrílicas</option>
+                                        <option data-i18n="services.manicure4">Uñas de gel</option>
+                                        <option data-i18n="contact.form.otherService">Otro servicio</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
+                                    <textarea class="form-control" rows="5" placeholder="Mensaje" data-i18n-placeholder="contact.form.message" required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.button">Enviar Mensaje</button>
                                 </div>
                             </div>
                         </form>
@@ -969,10 +974,10 @@ footer {
                         <i class="fas fa-spa footer-logo-icon"></i>
                         <span>Yaneiry Nails</span>
                     </div>
-                    <p class="mb-0">Diseños exclusivos y cuidado profesional para tus uñas</p>
+                    <p class="mb-0" data-i18n="footer.description">Diseños exclusivos y cuidado profesional para tus uñas</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">© 2023 Yaneiry Nails. Todos los derechos reservados.</p>
+                    <p class="mb-0">© 2023 Yaneiry Nails. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
                 </div>
             </div>
         </div>
@@ -1018,16 +1023,6 @@ footer {
                     behavior: 'smooth'
                 });
             });
-        });
-        
-        // Cambio de idioma
-        document.querySelector('.language-dropdown').addEventListener('change', function() {
-            if(this.value === 'en') {
-                // Aquí iría la lógica para cambiar a inglés
-                alert('Switching to English version');
-                // En una implementación real, esto redirigiría a la versión en inglés
-                // o cargaría los textos en inglés dinámicamente
-            }
         });
         
         // Animaciones al hacer scroll
@@ -1085,6 +1080,175 @@ footer {
         // Inicializar animaciones al cargar
         document.addEventListener('DOMContentLoaded', function() {
             animateOnScroll();
+            
+            // Verificar si hay un idioma guardado en localStorage
+            const savedLanguage = localStorage.getItem('language') || 'es';
+            if(savedLanguage === 'en') {
+                changeLanguage('en');
+            }
+            
+            // Configurar el selector de idioma
+            document.getElementById('language-selector').value = savedLanguage;
+        });
+
+        // Traducciones
+        const translations = {
+            es: {
+                "nav.home": "Inicio",
+                "nav.services": "Servicios",
+                "nav.gallery": "Galería",
+                "nav.about": "Nosotros",
+                "nav.contact": "Contacto",
+                "hero.title": "Belleza en tus uñas",
+                "hero.subtitle": "Diseños exclusivos y cuidado profesional",
+                "hero.button": "Reserva tu cita",
+                "services.title": "Nuestros Servicios",
+                "services.subtitle": "Tratamientos profesionales para tus uñas",
+                "services.manicure": "Manicura",
+                "services.manicure1": "Manicura básica",
+                "services.manicure2": "Esmaltado semipermanente",
+                "services.manicure3": "Uñas acrílicas",
+                "services.manicure4": "Uñas de gel",
+                "services.manicure5": "Diseños personalizados",
+                "services.pedicure": "Pedicura",
+                "services.pedicure1": "Pedicura básica",
+                "services.pedicure2": "Pedicura spa",
+                "services.pedicure3": "Tratamiento para callos",
+                "services.pedicure4": "Diseños especiales",
+                "services.pedicure5": "Masaje relajante",
+                "services.treatments": "Tratamientos",
+                "services.treatment1": "Kapping gel",
+                "services.treatment2": "Esculpidas",
+                "services.treatment3": "Uñas postizas",
+                "services.treatment4": "Reparación de uñas",
+                "services.treatment5": "Decoración premium",
+                "gallery.title": "Nuestros Trabajos",
+                "gallery.subtitle": "Algunos de nuestros diseños exclusivos",
+                "about.title": "Sobre Yaneiry Nails",
+                "about.text1": "En Yaneiry Nails nos especializamos en el cuidado y embellecimiento de uñas desde hace más de 5 años. Nuestro equipo de profesionales está altamente capacitado en las últimas técnicas y tendencias.",
+                "about.text2": "Utilizamos productos de primera calidad y nos comprometemos con la higiene y satisfacción de nuestros clientes. Cada servicio es una experiencia única de relajación y belleza.",
+                "about.clients": "Clientes satisfechos",
+                "about.experience": "Años de experiencia",
+                "contact.title": "Contacto",
+                "contact.subtitle": "Visítanos o contáctanos",
+                "contact.info": "Información",
+                "contact.hours": "Lunes a Sábado: 10:00 - 20:00 hrs",
+                "contact.form.title": "Envía un mensaje",
+                "contact.form.name": "Nombre",
+                "contact.form.email": "Email",
+                "contact.form.phone": "Teléfono",
+                "contact.form.service": "Selecciona un servicio",
+                "contact.form.serviceDefault": "Selecciona un servicio",
+                "contact.form.message": "Mensaje",
+                "contact.form.button": "Enviar Mensaje",
+                "contact.form.otherService": "Otro servicio",
+                "footer.description": "Diseños exclusivos y cuidado profesional para tus uñas",
+                "footer.rights": "Todos los derechos reservados.",
+                "loading": "Cargando experiencia de belleza..."
+            },
+            en: {
+                "nav.home": "Home",
+                "nav.services": "Services",
+                "nav.gallery": "Gallery",
+                "nav.about": "About Us",
+                "nav.contact": "Contact",
+                "hero.title": "Beauty in your nails",
+                "hero.subtitle": "Exclusive designs and professional care",
+                "hero.button": "Book your appointment",
+                "services.title": "Our Services",
+                "services.subtitle": "Professional nail treatments",
+                "services.manicure": "Manicure",
+                "services.manicure1": "Basic manicure",
+                "services.manicure2": "Semi-permanent polish",
+                "services.manicure3": "Acrylic nails",
+                "services.manicure4": "Gel nails",
+                "services.manicure5": "Custom designs",
+                "services.pedicure": "Pedicure",
+                "services.pedicure1": "Basic pedicure",
+                "services.pedicure2": "Spa pedicure",
+                "services.pedicure3": "Callus treatment",
+                "services.pedicure4": "Special designs",
+                "services.pedicure5": "Relaxing massage",
+                "services.treatments": "Treatments",
+                "services.treatment1": "Gel kapping",
+                "services.treatment2": "Sculpted nails",
+                "services.treatment3": "False nails",
+                "services.treatment4": "Nail repair",
+                "services.treatment5": "Premium decoration",
+                "gallery.title": "Our Work",
+                "gallery.subtitle": "Some of our exclusive designs",
+                "about.title": "About Yaneiry Nails",
+                "about.text1": "At Yaneiry Nails we specialize in nail care and beautification for over 5 years. Our team of professionals is highly trained in the latest techniques and trends.",
+                "about.text2": "We use top quality products and are committed to hygiene and customer satisfaction. Every service is a unique experience of relaxation and beauty.",
+                "about.clients": "Satisfied clients",
+                "about.experience": "Years of experience",
+                "contact.title": "Contact",
+                "contact.subtitle": "Visit us or contact us",
+                "contact.info": "Information",
+                "contact.hours": "Monday to Saturday: 10:00 AM - 8:00 PM",
+                "contact.form.title": "Send a message",
+                "contact.form.name": "Name",
+                "contact.form.email": "Email",
+                "contact.form.phone": "Phone",
+                "contact.form.service": "Select a service",
+                "contact.form.serviceDefault": "Select a service",
+                "contact.form.message": "Message",
+                "contact.form.button": "Send Message",
+                "contact.form.otherService": "Other service",
+                "footer.description": "Exclusive designs and professional care for your nails",
+                "footer.rights": "All rights reserved.",
+                "loading": "Loading beauty experience..."
+            }
+        };
+
+        // Cambiar idioma
+        function changeLanguage(language) {
+            // Guardar preferencia de idioma
+            localStorage.setItem('language', language);
+            
+            // Cambiar bandera
+            const flag = document.getElementById('current-flag');
+            if(language === 'es') {
+                flag.src = "https://flagcdn.com/w20/es.png";
+                flag.srcset = "https://flagcdn.com/w40/es.png 2x";
+                flag.alt = "Español";
+            } else {
+                flag.src = "https://flagcdn.com/w20/gb.png";
+                flag.srcset = "https://flagcdn.com/w40/gb.png 2x";
+                flag.alt = "English";
+            }
+            
+            // Cambiar texto del preloader
+            document.querySelector('.loading-text').textContent = translations[language].loading;
+            
+            // Actualizar todos los textos traducibles
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if(translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+            
+            // Actualizar placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if(translations[language][key]) {
+                    element.placeholder = translations[language][key];
+                }
+            });
+            
+            // Actualizar opciones del select
+            document.querySelectorAll('option[data-i18n]').forEach(option => {
+                const key = option.getAttribute('data-i18n');
+                if(translations[language][key]) {
+                    option.textContent = translations[language][key];
+                }
+            });
+        }
+
+        // Event listener para el selector de idioma
+        document.getElementById('language-selector').addEventListener('change', function() {
+            changeLanguage(this.value);
         });
     </script>
 </body>
